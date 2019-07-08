@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>VUE JS | Lesson-14</title>
+</head>
+<body>
+    
+    <div id="app">
+        <h1>Lesson-14</h1>
+
+
+        <div v-show="isVisible">I am visible</div>
+        <div v-show="!isVisible">I am not visible</div>
+
+        <hr>
+        <button @click="isVisible = !isVisible">toggle</button>
+    </div>
+
+
+    <script src="../vue.js"></script>
+    <script>
+
+        new Vue({
+            el: '#app',
+            data: {
+                isVisible: true
+            },
+            computed: {
+
+            },
+            methods: {
+
+            }
+        })
+    
+    </script>
+</body>
+</html>
