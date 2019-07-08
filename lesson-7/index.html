@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>VUE JS | Lesson-7</title>
+</head>
+<body>
+    
+    <div id="app">
+        <h1>Lesson-7</h1>
+        <a href="http://www.google.com" target="_blank" v-on:click.prevent>google</a>
+        <div v-on:mousemove="handleMouseMove">
+            X: {{ x }} \ Y: {{ y }}
+            <span v-on:mousemove.stop>Не изменять</span>
+        </div>
+    </div>
+
+
+    <script src="../vue.js"></script>
+    <script>
+    
+    new Vue({
+        el: '#app',
+        data: {
+            x: 0,
+            y: 0,
+        },
+        methods: {
+            handleMouseMove: function(e) {
+                this.x = e.clientX;
+                this.y = e.clientY;
+            }
+        },
+    })
+        
+    </script>
+</body>
+</html>
