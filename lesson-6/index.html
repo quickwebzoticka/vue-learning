@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>VUE JS | Lesson-6</title>
+</head>
+<body>
+    
+    <div id="app">
+        <h1>lesson-6</h1>
+        <h2>{{ title }} = {{ counter }}</h2>
+        <button v-on:click="increase(5, 'изменено на 5', $event)">Увеличить на 5</button>
+        <button v-on:click="increase(10, 'изменено на 10', $event)">Увеличить на 10</button>
+    </div>
+
+
+    <script src="../vue.js"></script>
+    <script>
+        
+        new Vue({
+            el: '#app',
+            data: {
+                title: 'Счетчик',
+                counter: 0,
+            },
+            methods: {
+                increase: function(num, str, e) {
+                    this.counter += num;
+                    this.title = str;
+
+                    if (num === 5) {
+                        e.target.style.color = 'blue';
+                    } else if (num === 10) {
+                        e.target.style.color = 'red';
+                    }
+                }
+            }
+        })
+
+    </script>
+</body>
+</html>
