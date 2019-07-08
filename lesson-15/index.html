@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>VUE JS | Lesson-15</title>
+</head>
+<body>
+    
+    <div id="app">
+        <h1>Lesson-15</h1>
+        <ul>
+            <li v-for="(person, index) of people">{{ index + 1 }} {{ person.name }} - <b>{{ person.age }}</b></li>
+        </ul>
+
+        <hr>
+
+        <ol>
+            <li v-for="num of 1">{{ num }}</li>
+        </ol>
+
+        <hr>
+
+        <ul>
+            <li v-for="(value, key, index) of person">{{ value }} - <b>{{ key }}</b> - <em>{{ index + 1 }}</em></li>
+        </ul>
+    </div>
+
+
+    <script src="../vue.js"></script>
+    <script>
+
+        new Vue({
+            el: '#app',
+            data: {
+                people: [
+                    {'name': 'Andrey', 'age': 25},
+                    {'name': 'Valreiia', 'age': 24},
+                    {'name': 'Grisha', 'age': 21},
+                ],
+                person: {
+                    name: 'Andrey',
+                    age: 25,
+                    job: 'developer'
+                }
+            },
+            computed: {
+
+            },
+            methods: {
+
+            }
+        })
+        
+    </script>
+</body>
+</html>
