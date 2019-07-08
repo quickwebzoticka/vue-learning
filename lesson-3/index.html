@@ -10,6 +10,8 @@
     
     <div id="app">
         <h2>Hello world</h2>
+
+        <a v-bind:href="url">{{ url }}</a>
     </div>
 
     <script src="../vue.js"></script>
@@ -18,7 +20,7 @@
         new Vue({
             el: '#app',
             data: {
-
+                url: 'https://google.com'
             },
             methods: {
 
