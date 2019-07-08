@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>VUE JS | Lesson-13</title>
+</head>
+<body>
+    
+    <div id="app">
+        <h1>Lesson-13</h1>
+        <div v-if="type === 'a'">A</div>
+        <div v-else-if="type === 'b'">B</div>
+        <div v-else-if="type === 'c'">C</div>
+        <div v-else>Not match</div>
+        <hr>
+        <input type="text" v-model="type">
+
+        <template  v-if="isVisible">
+            <h2>I am title</h2>
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quod, veniam.</p>
+        </template>
+        <template v-else>
+            <h2 style="color: red">I am title</h2>
+            <p style="color: blue">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quod, veniam.</p>
+        </template>
+    </div>
+
+
+    <script src="../vue.js"></script>
+    <script>
+
+        new Vue({
+            el: '#app',
+            data: {
+                isVisible: true,
+                type: 'a',
+            },
+            computed: {
+
+            },
+            methods: {
+
+            }
+        })
+        
+    </script>
+</body>
+</html>
