@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>VUE JS | Lesson-2</title>
+</head>
+<body>
+    
+    <div id="app">
+        <h1>String: {{ name }}</h1>
+        <h2>Summ (10 + 60): {{ 10 + 60 }}</h2>
+        <h2>Number: {{ number }}</h2>
+        <h2>Method: {{ sayHello() }}</h2>
+        <h2>If statement: {{ isOk ? 'I am okay' : 'im not okay' }}</h2>
+        <h2>Functions: {{ string.split('').reverse().join('') }}</h2>
+    </div>
+
+    <script src="../vue.js"></script>
+    <script>
+        
+        new Vue({
+            el: '#app',
+            data: {
+                name: 'Hello!',
+                number: 100,
+                isOk: false,
+                string: 'My name is Andr'
+            },
+            methods: {
+                sayHello: function() {
+                    return 'i am groot'
+                }
+            }
+        })
+
+    </script>
+</body>
+</html>
