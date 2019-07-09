@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>VUE JS | Lesson-16</title>
+</head>
+<body>
+    
+    <div id="app">
+        <h1>Lesson-16</h1>
+        <h2>Counter: {{ counter }} \ {{ counter2 }}</h2>
+        <h3>Result {{ result() }}</h3>
+        <h3>Computed result {{ computedResult }}</h3>
+
+        <button @click="add">add</button>
+        <button @click="sub">sub</button>
+        <button @click="counter2++">Add counter 2</button>
+    </div>
+
+
+    <script src="../vue.js"></script>
+    <script>
+        
+        new Vue({
+            el: '#app',
+            data: {
+                counter: 0,
+                counter2: 0,
+            },
+            computed: {
+                computedResult: function() {
+                    console.log('computed result was called');
+                    return this.condition = this.counter > 3 ? 'condition more than 3' : 'condition less than 3';
+                }
+            },
+            methods: {
+                add: function() {
+                    this.counter++;
+                    // this.condition = this.counter > 3 ? 'condition more than 3' : 'condition less than 3';
+                },
+                sub: function() {
+                    this.counter--;
+                    // this.condition = this.counter > 3 ? 'condition more than 3' : 'condition less than 3';
+                },
+                result: function() {
+                    console.log('result was called');
+                    return this.condition = this.counter > 3 ? 'condition more than 3' : 'condition less than 3';
+                }
+            }
+        })
+        
+    </script>
+</body>
+</html>

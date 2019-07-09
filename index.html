@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>VUE JS</title>
+    <style>
+        .wrapper {
+            overflow-x: hidden;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        nav {
+            display: grid;
+            grid-template-columns: repeat(1, 1fr);
+            grid-gap: 20px;
+        }
+        a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            color: #000;
+            text-decoration: none;
+            padding: 10px 0;
+            transition: .3s
+        }
+        a:hover {
+            background: #DDDDDD
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="wrapper">
+        <div class="container">
+            <nav></nav>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            
+            const nav = document.querySelector('nav');
+            let i = 1;
+
+            for (i; i < 16; i++) {
+                let html = `<a href="lesson-${i}/index.html">Lesson-${i}</a>`;
+                nav.innerHTML = `${html}${nav.innerHTML}`;
+            }
+        })
+    </script>
+</body>
+</html>
