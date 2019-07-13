@@ -9,29 +9,57 @@
 <body>
     
     <div id="app">
-        <h1>Lesson-18</h1>
+        <h1>lesson-18</h1>
+        <h2>{{ title }}</h2>
+        <h2>{{ newField }}</h2>
+        <button @click="title = 'updated title'">update title</button>
+    </div>
+    <hr>
+    <div id="app2">
+        <h2>{{ title }}</h2>
+        <button @click="updateFirstTitle">update first title</button>
     </div>
 
 
     <script src="../vue.js"></script>
     <script>
     
-        new Vue({
-            el: '#app',
-            data: {
-
-            },
-            methods: {
-
-            },
-            computed: {
-
-            },
-            watch: {
-                
+    const vue1 = new Vue({
+        el: "#app",
+        data: {
+            title: 'Hello world'
+        },
+        methods: {
+            alertFast: function() {
+                alert('initialized from app 1');
             }
-        })
-    
+        },
+        computed: {
+
+        },
+        watch: {
+
+        }
+    });
+    console.log(vue1);
+
+    vue1.newField = 'randomText';
+
+    new Vue({
+        el: '#app2',
+        data: {
+            title: 'Hello world 2'
+        },
+        methods: {
+            updateFirstTitle: function() {
+                vue1.title = "updated from app 2"
+                vue1.newField = "newText";
+
+                setTimeout(() => {vue1.alertFast()}, 1000)
+            }
+        }
+    })
+
     </script>
 </body>
 </html>
