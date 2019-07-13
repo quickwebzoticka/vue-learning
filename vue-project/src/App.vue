@@ -1,13 +1,27 @@
 <template>
-  <h1>{{ msg }}</h1>
+  <div>
+    <h1>Parent: {{ carName }}</h1>
+    <app-car 
+      :carName="carName"
+      :carYear="carYear"
+    ></app-car>
+  </div>
 </template>
 
 <script>
+
+import Car from './Car.vue'
+
+
 export default {
   data () {
     return {
-      msg: 'Hello world 2!'
+      carName: 'Ford from parent',
+      carYear: 2015
     }
+  },
+  components: {
+    appCar: Car
   }
 }
 </script>
