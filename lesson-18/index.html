@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>VUE JS | Lesson-18</title>
+</head>
+<body>
+    
+    <div id="app">
+        <h1>lesson-18</h1>
+        <h2>{{ title }}</h2>
+        <h2>{{ newField }}</h2>
+        <button @click="title = 'updated title'">update title</button>
+    </div>
+    <hr>
+    <div id="app2">
+        <h2>{{ title }}</h2>
+        <button @click="updateFirstTitle">update first title</button>
+    </div>
+
+
+    <script src="../vue.js"></script>
+    <script>
+    
+    const vue1 = new Vue({
+        el: "#app",
+        data: {
+            title: 'Hello world'
+        },
+        methods: {
+            alertFast: function() {
+                alert('initialized from app 1');
+            }
+        },
+        computed: {
+
+        },
+        watch: {
+
+        }
+    });
+    console.log(vue1);
+
+    vue1.newField = 'randomText';
+
+    new Vue({
+        el: '#app2',
+        data: {
+            title: 'Hello world 2'
+        },
+        methods: {
+            updateFirstTitle: function() {
+                vue1.title = "updated from app 2"
+                vue1.newField = "newText";
+
+                setTimeout(() => {vue1.alertFast()}, 1000)
+            }
+        }
+    })
+
+    </script>
+</body>
+</html>
