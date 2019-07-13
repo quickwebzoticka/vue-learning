@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>VUE JS | Lesson-19</title>
+</head>
+<body>
+    
+    <div id="app">
+        <h1>Lesson-19</h1>
+        <h2 ref="heading">{{ title }}</h2>
+        <button @click="updateTitle">update title</button>
+
+        <hr ref="horLine">
+    </div>
+
+
+    <script src="../vue.js"></script>
+    <script>
+    
+    new Vue({
+        el: '#app',
+        data: {
+            title: 'title',
+        },
+        methods: {
+            updateTitle: function() {
+                this.title = 'updatedTitle';
+                this.$refs.heading.style.color = 'red';
+                console.log(this.$refs.heading);
+                console.log(this.$refs.horLine);
+                console.log(document.querySelector('hr'));
+            }
+        },
+        computed: {
+            
+        },
+        watch: {
+
+        }
+    })
+    
+    </script>
+</body>
+</html>
