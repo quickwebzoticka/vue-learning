@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>VUE JS | Lesson-21</title>
+</head>
+<body>
+    
+    <div id="app">
+        <h1>Lesson-21</h1>
+        <h2>{{ title }}</h2>
+        <button @click="title = 'new title'">update title</button>
+        <button @click="doDestroy">destroy</button>
+    </div>
+
+
+    <script src="../vue.js"></script>
+    <script>
+    
+        new Vue({
+            el: '#app',
+            data: {
+                title: 'title',
+            },
+            methods: {
+                doDestroy: function() {
+                    this.$destroy();
+                }
+            },
+            computed: {
+
+            },
+            watch: {
+
+            },
+            beforeCreate: function() {
+                console.log('Before create');
+            },
+            created: function() {
+                console.log('Created');
+            },
+            beforeMount: function() {
+                console.log('Before mount!');
+            },
+            mounted: function() {
+                console.log('Mounted');
+            },
+            beforeUpdate: function() {
+                console.log('before updated')
+            },
+            updated: function() {
+                console.log('updated')
+            },
+            beforeDestroy: function() {
+                console.log('before destroy');
+            },
+            destroyed: function() {
+                console.log('destroyed');
+            }
+        })
+
+    </script>
+</body>
+</html>
