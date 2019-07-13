@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>VUE JS | Lesson-22</title>
+</head>
+<body>
+    
+    <div id="app">
+        <my-counter v-for="i of 3"></my-counter>
+    </div>
+
+    <hr>
+
+
+    <div id="app2">
+        <my-counter></my-counter>
+    </div>
+
+
+    <script src="../vue.js"></script>
+    <script>
+
+        const component = {
+            template: `
+                <div>
+                    <p>Counter: {{ counter }}</p>
+                    <button @click="addCounter">Increase counter</button>
+                </div>
+            `,
+            data: function () {
+                return {
+                    counter: 0
+                };
+            },
+            methods: {
+                addCounter: function() {
+                    this.counter++;
+                }
+            }
+        }
+
+        const vueObject = {
+            counter: 0
+        }
+
+        // Vue.component('my-counter', {
+        //     template: `
+        //         <div>
+        //             <p>Counter: {{ counter }}</p>
+        //             <button @click="addCounter">Increase counter</button>
+        //         </div>
+        //     `,
+        //     data: function () {
+        //         return {
+        //             counter: 0
+        //         };
+        //     },
+        //     methods: {
+        //         addCounter: function() {
+        //             this.counter++;
+        //         }
+        //     }
+        // })
+    
+        new Vue({
+            el: '#app',
+            components: {
+                'my-counter': component
+            }
+        })
+
+        new Vue({
+            el: '#app2',
+            components: {
+                myCounter: component
+            }
+        })
+    
+    </script>
+</body>
+</html>
