@@ -1,27 +1,30 @@
 <template>
-    <div class="car">
-        <h3>car name: {{ carName }} </h3>
-        <p>car year {{ carYear }} </p>
+    <div>
+        <slot name="title"></slot>    
+
+        <hr>
+
+        <slot name="main"></slot>
     </div>
 </template>
 
 
 <script>
 export default {
-    props: ['carName', 'carYear'],
+    props: {
+        carName: String,
+    }
 }
 </script>
 
-<style>
-    .car {
-        border: 1px solid black;
-    }
-    .car h3 {
+<style scoped>
+    h2 {
         color: red;
     }
-    .car p {
-        color: green
+    div {
+        border: 1px solid black;
     }
 </style>
+
 
 
