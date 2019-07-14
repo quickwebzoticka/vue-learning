@@ -1,14 +1,30 @@
 <template>
 <div>
-    <h2>Counter</h2>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio, ipsum!</p>
+    <h1>Component: Counter.vue</h1>
+    <h2>Counter: {{ counter }}</h2>
+    <button @click="increseCounter">increase Counter</button>
 </div>
 </template>
 
 
 <script>
+import { eventEmitter } from './main';
 export default {
-    
+    data() {
+        return {
+            counter: 0,
+        }
+    },
+    created() {
+        eventEmitter.$on('updateCounter', () => {
+            this.counter++;
+        })
+    },
+    methods: {
+        increseCounter() {
+            eventEmitter.$emit('increaseCounter', 10);
+        }
+    }
 }
 </script>
 
