@@ -1,13 +1,14 @@
 <template>
   <div>
-    <button @click="changeColor">colorChange</button>
-    <app-counter v-colored:background.delay="color"></app-counter>
-    <app-counter v-colored:color.font.delay="color"></app-counter>
-    <div v-font>local font</div>
-    <app-car>
-      <h2 slot="title">Carname: {{ carName }}</h2>
-      <p slot="main">Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat, similique!</p>
-    </app-car>
+    <input type="text" v-model="searchName">
+
+    <ul>
+      <li v-for="name of filteredNames">{{ name }}</li>
+    </ul>
+
+    <hr>
+
+    <app-list></app-list>
   </div>
 </template>
 
@@ -15,30 +16,14 @@
 
 import Car from './Car.vue'
 import Counter from './Counter.vue'
+import listMixin from './listMixin.js'
 
 
 export default {
-  data() {
-    return {
-      carName: 'Mazda',
-      color: 'red',
-    }
-  },
-  components: {
-    appCar: Car,
-    appCounter: Counter
-  },
-  methods: {
-    changeColor() {
-      this.color = "green";
-      console.log(this.color)
-    }
-  },
-  directives: {
-    font: {
-      bind(el, bindings, vnode) {
-        el.style.fontSize = '40px';
-      }
+  mixins: [listMixin],
+  filters: {
+    lowercase(value) {
+      return value.toLowerCase()
     }
   }
 }
